@@ -48,17 +48,25 @@ module.exports = "<router-outlet></router-outlet>"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'app';
+    function AppComponent(authService) {
+        this.authService = authService;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.authService.loadInitialValues();
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -66,9 +74,11 @@ AppComponent = __decorate([
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */]) === "function" && _a || Object])
 ], AppComponent);
 
+var _a;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -81,18 +91,18 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__welcome_welcome_module__ = __webpack_require__("../../../../../src/app/welcome/welcome.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__student_dashboard_student_dashboard_module__ = __webpack_require__("../../../../../src/app/student-dashboard/student-dashboard.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__student_dashboard_lessons_service__ = __webpack_require__("../../../../../src/app/student-dashboard/lessons.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__teacher_dashboard_teacher_dashboard_module__ = __webpack_require__("../../../../../src/app/teacher-dashboard/teacher-dashboard.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__welcome_welcome_screen_news_news_service__ = __webpack_require__("../../../../../src/app/welcome/welcome-screen/news/news.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__auth_guard__ = __webpack_require__("../../../../../src/app/auth.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__student_dashboard_lesson_questions_service__ = __webpack_require__("../../../../../src/app/student-dashboard/lesson/questions.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__student_dashboard_homework_service__ = __webpack_require__("../../../../../src/app/student-dashboard/homework.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__teacher_auth_guard__ = __webpack_require__("../../../../../src/app/teacher-auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__welcome_welcome_module__ = __webpack_require__("../../../../../src/app/welcome/welcome.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__student_dashboard_student_dashboard_module__ = __webpack_require__("../../../../../src/app/student-dashboard/student-dashboard.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__student_dashboard_lessons_service__ = __webpack_require__("../../../../../src/app/student-dashboard/lessons.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__teacher_dashboard_teacher_dashboard_module__ = __webpack_require__("../../../../../src/app/teacher-dashboard/teacher-dashboard.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__welcome_welcome_screen_news_news_service__ = __webpack_require__("../../../../../src/app/welcome/welcome-screen/news/news.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__auth_guard__ = __webpack_require__("../../../../../src/app/auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__student_dashboard_lesson_questions_service__ = __webpack_require__("../../../../../src/app/student-dashboard/lesson/questions.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__student_dashboard_homework_service__ = __webpack_require__("../../../../../src/app/student-dashboard/homework.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__teacher_auth_guard__ = __webpack_require__("../../../../../src/app/teacher-auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -122,27 +132,29 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
+            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
+            // HttpClientModule,
+            __WEBPACK_IMPORTED_MODULE_14__angular_http__["c" /* HttpModule */],
             //User defined modules
-            __WEBPACK_IMPORTED_MODULE_5__welcome_welcome_module__["a" /* WelcomeModule */],
-            __WEBPACK_IMPORTED_MODULE_6__student_dashboard_student_dashboard_module__["a" /* StudentDashboardModule */],
-            __WEBPACK_IMPORTED_MODULE_8__teacher_dashboard_teacher_dashboard_module__["a" /* TeacherDashboardModule */]
+            __WEBPACK_IMPORTED_MODULE_4__welcome_welcome_module__["a" /* WelcomeModule */],
+            __WEBPACK_IMPORTED_MODULE_5__student_dashboard_student_dashboard_module__["a" /* StudentDashboardModule */],
+            __WEBPACK_IMPORTED_MODULE_7__teacher_dashboard_teacher_dashboard_module__["a" /* TeacherDashboardModule */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_11__student_dashboard_lesson_questions_service__["a" /* QuestionsService */],
-            __WEBPACK_IMPORTED_MODULE_7__student_dashboard_lessons_service__["a" /* LessonsService */],
-            __WEBPACK_IMPORTED_MODULE_9__welcome_welcome_screen_news_news_service__["a" /* NewsService */],
-            __WEBPACK_IMPORTED_MODULE_13__student_dashboard_homework_service__["a" /* HomeworkService */],
-            __WEBPACK_IMPORTED_MODULE_12__auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_10__auth_guard__["a" /* AuthGuard */],
-            __WEBPACK_IMPORTED_MODULE_14__teacher_auth_guard__["a" /* TeacherAuthGuard */]
+            __WEBPACK_IMPORTED_MODULE_10__student_dashboard_lesson_questions_service__["a" /* QuestionsService */],
+            __WEBPACK_IMPORTED_MODULE_6__student_dashboard_lessons_service__["a" /* LessonsService */],
+            __WEBPACK_IMPORTED_MODULE_8__welcome_welcome_screen_news_news_service__["a" /* NewsService */],
+            __WEBPACK_IMPORTED_MODULE_12__student_dashboard_homework_service__["a" /* HomeworkService */],
+            // Http,
+            __WEBPACK_IMPORTED_MODULE_11__auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_9__auth_guard__["a" /* AuthGuard */],
+            __WEBPACK_IMPORTED_MODULE_13__teacher_auth_guard__["a" /* TeacherAuthGuard */]
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -204,6 +216,7 @@ var _a;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -215,12 +228,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AuthService = (function () {
-    function AuthService(http) {
+    function AuthService(http, router) {
         this.http = http;
+        this.router = router;
         this.hasLoggedIn = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.loggedIn = false;
     }
+    AuthService.prototype.ngOnInit = function () {
+    };
+    AuthService.prototype.loadInitialValues = function () {
+        var tmp = sessionStorage.getItem('token');
+        if (tmp != undefined) {
+            this.token = tmp;
+            this.getInfoAboutMe();
+            this.loggedIn = true;
+        }
+    };
     AuthService.prototype.getUserId = function () {
         return this.userId;
     };
@@ -229,6 +254,27 @@ var AuthService = (function () {
     };
     AuthService.prototype.getPrivileges = function () {
         return this.privileges;
+    };
+    AuthService.prototype.getInfoAboutMe = function () {
+        var _this = this;
+        console.log(this.token);
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Authorization', 'Bearer ' + this.token);
+        this.http.post('https://cercinfo.herokuapp.com/api/auth/me', {}, { headers: headers }).subscribe(function (datax) {
+            var dataxx = JSON.parse(datax['_body']);
+            _this.userId = dataxx['user_id'];
+            // console.log(dataxx);
+            if (dataxx['privileges'][0] == 'student') {
+                _this.privileges = 1;
+                _this.router.navigateByUrl('/dashboard');
+            }
+            if (dataxx['privileges'][0] == 'teacher') {
+                _this.privileges = 2;
+                _this.router.navigateByUrl('/teacher-dashboard');
+                // console.log('teacher privileges set');
+            }
+            _this.hasLoggedIn.emit(true);
+        });
     };
     AuthService.prototype.login = function (email, password) {
         var _this = this;
@@ -244,22 +290,9 @@ var AuthService = (function () {
             if (xdata['token'] != undefined) {
                 _this.token = xdata['token'];
                 _this.loggedIn = true;
-                console.log(_this.token);
-                var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
-                headers.append('Authorization', 'Bearer ' + _this.token);
-                _this.http.post('https://cercinfo.herokuapp.com/api/auth/me', body, { headers: headers }).subscribe(function (datax) {
-                    var dataxx = JSON.parse(datax['_body']);
-                    _this.userId = dataxx['user_id'];
-                    console.log(dataxx);
-                    if (dataxx['privileges'][0] == 'student') {
-                        _this.privileges = 1;
-                    }
-                    if (dataxx['privileges'][0] == 'teacher') {
-                        _this.privileges = 2;
-                        console.log('teacher privileges set');
-                    }
-                    _this.hasLoggedIn.emit(true);
-                });
+                sessionStorage.setItem('token', _this.token);
+                // console.log(this.token);
+                _this.getInfoAboutMe();
             }
             else {
                 _this.hasLoggedIn.emit(false);
@@ -277,6 +310,8 @@ var AuthService = (function () {
     AuthService.prototype.logout = function () {
         this.loggedIn = false;
         this.token = '';
+        sessionStorage.clear();
+        this.router.navigateByUrl('/');
     };
     return AuthService;
 }());
@@ -286,10 +321,10 @@ __decorate([
 ], AuthService.prototype, "hasLoggedIn", void 0);
 AuthService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _c || Object])
 ], AuthService);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=auth.service.js.map
 
 /***/ }),
@@ -376,7 +411,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shared/not-logged-in-navigation/not-logged-in-navigation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n      <div class=\"navbar-header\"><a class=\"navbar-brand navbar-link\" routerLink=\"/\" style=\"color:rgb(200,200,200);\">Cerc informatica eMAG</a>\n          <button class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navcol-1\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"navcol-1\">\n          <ul class=\"nav navbar-nav navbar-right\">\n              <li class=\"active\" role=\"presentation\"><a routerLink=\"/login\" id=\"login-button\" style=\"color:rgb(200,200,200);\">Log in</a></li>\n              <li role=\"presentation\"><a routerLink=\"/register\" style=\"color:rgb(200,200,200);\">Sign up</a></li>\n          </ul>\n      </div>\n  </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n      <div class=\"navbar-header\">\n          <a class=\"navbar-brand navbar-link\" [routerLink]=\"welcomeRoutinLink\" style=\"color:rgb(200,200,200);\">Cerc informatica eMAG</a>\n          <button class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navcol-1\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"navcol-1\">\n          <ul *ngIf=\"!loggedIn\" class=\"nav navbar-nav navbar-right\">\n              <li class=\"active\" role=\"presentation\"><a routerLink=\"/login\" id=\"login-button\" style=\"color:rgb(200,200,200);\">Log in</a></li>\n              <li role=\"presentation\"><a routerLink=\"/register\" style=\"color:rgb(200,200,200);\">Sign up</a></li>\n          </ul>\n          <ul *ngIf=\"loggedIn\" class=\"nav navbar-nav navbar-right\">\n            <li class=\"active\" role=\"presentation\"><a (click)=\"logout()\" id=\"login-button\" style=\"color:rgb(200,200,200);\">Logout</a></li>\n        </ul>\n      </div>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -386,6 +421,7 @@ module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"containe
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotLoggedInNavigationComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -396,10 +432,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var NotLoggedInNavigationComponent = (function () {
-    function NotLoggedInNavigationComponent() {
+    function NotLoggedInNavigationComponent(authService) {
+        this.authService = authService;
     }
     NotLoggedInNavigationComponent.prototype.ngOnInit = function () {
+        this.welcomeRoutinLink = '/';
+        if (this.authService.isLoggedIn() == 'false') {
+            this.loggedIn = false;
+        }
+        else {
+            this.loggedIn = true;
+            if (this.authService.getPrivileges() == 1) {
+                this.welcomeRoutinLink = '/dashboard';
+            }
+            else if (this.authService.getPrivileges() == 2) {
+                this.welcomeRoutinLink = '/teacher-dashboard';
+            }
+        }
+    };
+    NotLoggedInNavigationComponent.prototype.logout = function () {
+        this.authService.logout();
+        this.loggedIn = false;
     };
     return NotLoggedInNavigationComponent;
 }());
@@ -409,9 +464,10 @@ NotLoggedInNavigationComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/shared/not-logged-in-navigation/not-logged-in-navigation.component.html"),
         styles: [__webpack_require__("../../../../../src/app/shared/not-logged-in-navigation/not-logged-in-navigation.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */]) === "function" && _a || Object])
 ], NotLoggedInNavigationComponent);
 
+var _a;
 //# sourceMappingURL=not-logged-in-navigation.component.js.map
 
 /***/ }),
@@ -571,7 +627,7 @@ var HomeworkComponent = (function () {
             _this.homeworkService.getHomeworkById(_this.id).subscribe(function (data) {
                 data = JSON.parse(data['_body']);
                 _this.homeworkData = data;
-                console.log(_this.homeworkData);
+                // console.log(this.homeworkData);
             });
         });
     };
@@ -612,7 +668,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/student-dashboard/lesson/lesson.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"row\">\n    <div class=\"col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n        <div class=\"jumbotron\" id=\"jumbotron-lectie\">\n            <h1>{{lessonData?.title}} </h1>\n            <!-- <h4 class=\"text-center\">-{{lessonData?.user.first_name}} {{lessonData?.user.last_name}}-</h4> -->\n            <p [innerHtml]=\"lessonData?.content\">\n                <!-- {{lessonData?.content}} -->\n                <!-- <div ></div> -->\n            </p>\n        </div>\n        <div class=\"panel panel-default\" id=\"comments\">\n            <div class=\"panel-heading\">\n                <h3 class=\"panel-title\">Comments </h3>\n            </div>\n            <div class=\"panel-body\">\n                <ul class=\"list-group\">\n                    <li *ngFor=\"let question of questionsData; let i = index\" class=\"list-group-item comment\">\n                        <div class=\"panel panel-default\">\n                            <div class=\"panel-heading\">\n                                <div class=\"container-fluid\">\n                                    <div class=\"row\">\n                                        <div class=\"col-lg-6 col-md-12\">\n                                            <h3 class=\"text-left panel-title\">{{question['user_id']}}</h3>\n                                        </div>\n                                        <div class=\"col-lg-6 col-md-12\">\n                                            <h3 class=\"text-right panel-title\">!!!Date has to be added in the backend!!!</h3>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"panel-body\">\n                                <span>{{question['content']}}</span>\n                                <hr>\n                                <hr>\n                                <div *ngFor=\"let answer of answersData[i]; let j = index\" class=\"panel panel-default\">\n                                    <div class=\"panel-heading\">\n                                        <div class=\"container-fluid\">\n                                            <div class=\"row\">\n                                                <div class=\"col-lg-6 col-md-12\">\n                                                    <h3 class=\"text-left panel-title\">{{answer['user_id']}}</h3>\n                                                </div>\n                                                <div class=\"col-lg-6 col-md-12\">\n                                                    <h3 class=\"text-right panel-title\">!!!Date has to be added in the backend!!!</h3>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"panel-body\"><span>{{answer['content']}} </span></div>\n                                </div>\n                                <h4>Reply to question</h4>\n                                <div class=\"container-fluid\">\n                                    <div class=\"row\">\n                                        <div class=\"col-md-12\" id=\"comment-input-parent\">\n                                            <textarea rows=\"3\" id=\"comment-input\" class=\"form-control\" [(ngModel)]=\"newAnswersContent[i]\"></textarea>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"col-md-12\">\n                                            <button class=\"btn btn-primary\" id=\"submit-comment-button\" (click)=\"addNewAnswer(i)\">Add answer</button>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </li>\n                </ul>\n                <h3>Add a comment</h3>\n                <div class=\"container-fluid\">\n                    <div class=\"row\">\n                        <div class=\"col-md-12\" id=\"comment-input-parent\">\n                            <textarea rows=\"5\" id=\"comment-input\" class=\"form-control\" [(ngModel)]=\"newCommentContent\"></textarea>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <button class=\"btn btn-primary\" id=\"submit-comment-button\" (click)=\"addNewComment()\">Add comment</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
+module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"row\">\n    <div class=\"col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n        <div class=\"jumbotron\" id=\"jumbotron-lectie\">\n            <h1>{{lessonData?.title}} </h1>\n            <!-- <h4 class=\"text-center\">-{{lessonData?.user.first_name}} {{lessonData?.user.last_name}}-</h4> -->\n            <p [innerHtml]=\"lessonData?.content\">\n                <!-- {{lessonData?.content}} -->\n                <!-- <div ></div> -->\n            </p>\n        </div>\n        <div class=\"panel panel-default\" id=\"comments\">\n            <div class=\"panel-heading\">\n                <h3 class=\"panel-title\">Comments </h3>\n            </div>\n            <div class=\"panel-body\">\n                <ul class=\"list-group\">\n                    <li *ngFor=\"let question of questionsData; let i = index\" class=\"list-group-item comment\">\n                        <div class=\"panel panel-default\">\n                            <div class=\"panel-heading\">\n                                <div class=\"container-fluid\">\n                                    <div class=\"row\">\n                                        <div class=\"col-lg-6 col-md-12\">\n                                            <h3 class=\"text-left panel-title\">{{question['user_id']}}</h3>\n                                        </div>\n                                        <div class=\"col-lg-6 col-md-12\">\n                                            <h3 class=\"text-right panel-title\">!!!Date has to be added in the backend!!!</h3>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"panel-body\">\n                                <span>{{question['content']}}</span>\n                                <hr>\n                                <hr>\n                                <div *ngFor=\"let answer of answersData[question['id']]\" class=\"panel panel-default\">\n                                    <div class=\"panel-heading\">\n                                        <div class=\"container-fluid\">\n                                            <div class=\"row\">\n                                                <div class=\"col-lg-6 col-md-12\">\n                                                    <h3 class=\"text-left panel-title\">{{answer['user_id']}}</h3>\n                                                </div>\n                                                <div class=\"col-lg-6 col-md-12\">\n                                                    <h3 class=\"text-right panel-title\">!!!Date has to be added in the backend!!!</h3>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"panel-body\"><span>{{answer['content']}} </span></div>\n                                </div>\n                                <h4>Reply to question</h4>\n                                <div class=\"container-fluid\">\n                                    <div class=\"row\">\n                                        <div class=\"col-md-12\" id=\"comment-input-parent\">\n                                            <textarea rows=\"3\" id=\"comment-input\" class=\"form-control\" [(ngModel)]=\"newAnswersContent[i]\"></textarea>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"col-md-12\">\n                                            <button class=\"btn btn-primary\" id=\"submit-comment-button\" (click)=\"addNewAnswer(i)\">Add answer</button>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </li>\n                </ul>\n                <h3>Add a comment</h3>\n                <div class=\"container-fluid\">\n                    <div class=\"row\">\n                        <div class=\"col-md-12\" id=\"comment-input-parent\">\n                            <textarea rows=\"5\" id=\"comment-input\" class=\"form-control\" [(ngModel)]=\"newCommentContent\"></textarea>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <button class=\"btn btn-primary\" id=\"submit-comment-button\" (click)=\"addNewComment()\">Add comment</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
 
 /***/ }),
 
@@ -653,19 +709,24 @@ var LessonComponent = (function () {
         this.questionsService.getQuestionsByLesson(this.id).subscribe(function (datax) {
             _this.questionsData = [];
             _this.answersData = [];
-            console.log(datax);
+            // console.log(datax);
             datax = JSON.parse(datax['_body']);
             for (var question in datax) {
                 _this.questionsData.push(datax[question]);
                 _this.loadAnswers(datax[question]['id']);
             }
+            // console.log(this.answersData);
+            console.log(_this.questionsData);
             console.log(_this.answersData);
         });
     };
     LessonComponent.prototype.loadAnswers = function (questionId) {
         var _this = this;
+        // console.log('loading answers for question id: ' + questionId);
         this.questionsService.getAnswersByQuestion(questionId).subscribe(function (data) {
-            _this.answersData.push(JSON.parse(data['_body']));
+            console.log(questionId);
+            console.log(data);
+            _this.answersData[questionId] = JSON.parse(data['_body']);
         });
     };
     LessonComponent.prototype.ngOnInit = function () {
@@ -682,8 +743,8 @@ var LessonComponent = (function () {
         });
     };
     LessonComponent.prototype.addNewAnswer = function (x) {
-        console.log(this.newAnswersContent[x]);
-        console.log(this.questionsData[x]['id']);
+        // console.log(this.newAnswersContent[x]);
+        // console.log(this.questionsData[x]['id']);
         this.questionsService.addAnswer(this.newAnswersContent[x], this.questionsData[x]['id']);
         this.newAnswersContent[x] = '';
     };
@@ -743,6 +804,7 @@ var QuestionsService = (function () {
     QuestionsService.prototype.getAnswersByQuestion = function (questionId) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Authorization', 'Bearer ' + this.authService.getToken());
+        console.log('question id: ' + questionId);
         return this.http.get('https://cercinfo.herokuapp.com/api/answer?question_id=' + questionId, { headers: headers });
     };
     QuestionsService.prototype.addQuestion = function (content, lessonId) {
@@ -771,7 +833,7 @@ var QuestionsService = (function () {
         headers.append('Content-Type', 'application/json');
         this.http.post('https://cercinfo.herokuapp.com/api/answer', body, { headers: headers }).subscribe(function (data) {
             _this.contentChanged.emit();
-            console.log('emitted');
+            // console.log('emitted');
         });
     };
     return QuestionsService;
@@ -829,12 +891,13 @@ var LessonsService = (function () {
         headersx.append('Authorization', 'Bearer ' + this.authService.getToken());
         return this.http.get('https://cercinfo.herokuapp.com/api/lesson/' + String(id), { headers: headersx });
     };
-    LessonsService.prototype.postLesson = function (titlex, contentx) {
+    LessonsService.prototype.postLesson = function (titlex, contentx, classx) {
         var _this = this;
         var body = {
             title: titlex,
             content: contentx,
-            user_id: this.authService.getUserId()
+            user_id: this.authService.getUserId(),
+            class: classx
         };
         var headersx = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headersx.append('Content-Type', 'application/json');
@@ -851,11 +914,12 @@ var LessonsService = (function () {
             _this.contentChanged.emit();
         });
     };
-    LessonsService.prototype.putLesson = function (titlex, contentx, idx) {
+    LessonsService.prototype.putLesson = function (titlex, contentx, selectedClass, idx) {
         var body = {
             title: titlex,
             content: contentx,
-            user_id: this.authService.getUserId()
+            user_id: this.authService.getUserId(),
+            class: selectedClass
         };
         var headersx = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headersx.append('Content-Type', 'application/json');
@@ -875,6 +939,67 @@ LessonsService = __decorate([
 
 var _a, _b, _c;
 //# sourceMappingURL=lessons.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/student-dashboard/programa/programa.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/student-dashboard/programa/programa.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  programa works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/student-dashboard/programa/programa.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgramaComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ProgramaComponent = (function () {
+    function ProgramaComponent() {
+    }
+    ProgramaComponent.prototype.ngOnInit = function () {
+    };
+    return ProgramaComponent;
+}());
+ProgramaComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-programa',
+        template: __webpack_require__("../../../../../src/app/student-dashboard/programa/programa.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/student-dashboard/programa/programa.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ProgramaComponent);
+
+//# sourceMappingURL=programa.component.js.map
 
 /***/ }),
 
@@ -931,12 +1056,14 @@ StudentDashboardForRoutingComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_ngx_quill_editor__ = __webpack_require__("../../../../ngx-quill-editor/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__homework_homework_component__ = __webpack_require__("../../../../../src/app/student-dashboard/homework/homework.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__programa_programa_component__ = __webpack_require__("../../../../../src/app/student-dashboard/programa/programa.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -985,7 +1112,7 @@ StudentDashboardModule = __decorate([
                 }
             ])
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_3__student_dashboard_student_dashboard_component__["a" /* StudentDashboardComponent */], __WEBPACK_IMPORTED_MODULE_6__lesson_lesson_component__["a" /* LessonComponent */], __WEBPACK_IMPORTED_MODULE_7__student_dashboard_for_routing_component__["a" /* StudentDashboardForRoutingComponent */], __WEBPACK_IMPORTED_MODULE_11__homework_homework_component__["a" /* HomeworkComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_3__student_dashboard_student_dashboard_component__["a" /* StudentDashboardComponent */], __WEBPACK_IMPORTED_MODULE_6__lesson_lesson_component__["a" /* LessonComponent */], __WEBPACK_IMPORTED_MODULE_7__student_dashboard_for_routing_component__["a" /* StudentDashboardForRoutingComponent */], __WEBPACK_IMPORTED_MODULE_11__homework_homework_component__["a" /* HomeworkComponent */], __WEBPACK_IMPORTED_MODULE_12__programa_programa_component__["a" /* ProgramaComponent */]]
     })
 ], StudentDashboardModule);
 
@@ -1049,7 +1176,7 @@ var StudentDashboardComponent = (function () {
         var _this = this;
         this.homeworkService.getHomework().subscribe(function (data) {
             data = JSON.parse(data['_body']);
-            console.log(data);
+            // console.log(data);
             for (var homework in data) {
                 _this.homeworkObjects.push(data[homework]);
             }
@@ -1151,7 +1278,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/teacher-dashboard/edit-lesson/edit-lesson.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"row\">\n    <div class=\"col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n        <div class=\"jumbotron\" id=\"jumbotron-lectie\">\n            <h1>{{pageTitle}}</h1>\n\n            <div class=\"form-group\">\n                <p>Title </p>\n                <input [(ngModel)]=\"lessonTitle\" name=\"edit-lesson-title\" class=\"form-control\" type=\"text\">\n            </div>\n            <div class=\"form-group\">\n                <p>Content </p>\n                <!-- <textarea [(ngModel)]=\"lessonContent\" class=\"form-control\" name=\"edit-lesson-content\" rows=\"20\" id=\"edit-lesson-content\"></textarea> -->\n                <quill-editor class=\"my-quill-editor\" [(ngModel)]=\"lessonContent\"></quill-editor>\n            </div>\n            <button (click)=\"onSubmit()\" class=\"btn btn-success\">Salveaza</button>\n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
+module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"row\">\n    <div class=\"col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n        <div class=\"jumbotron\" id=\"jumbotron-lectie\">\n            <h1>{{pageTitle}}</h1>\n\n            <div class=\"form-group\">\n                <p>Title </p>\n                <input [(ngModel)]=\"lessonTitle\" name=\"edit-lesson-title\" class=\"form-control\" type=\"text\">\n            </div>\n            <div class=\"form-group\">\n                <p>Content </p>\n                {{lessonContent}}\n                <!-- <textarea [(ngModel)]=\"lessonContent\" class=\"form-control\" name=\"edit-lesson-content\" rows=\"20\" id=\"edit-lesson-content\"></textarea> -->\n                <quill-editor class=\"my-quill-editor\" [(ngModel)]=\"lessonContent\"></quill-editor>\n            </div>\n            <button (click)=\"onSubmit()\" class=\"btn btn-success\">Salveaza</button>\n            <div class=\"form-group\">\n                <label for=\"selectClass\">Clasa: </label>\n                <select id=\"selectClass\" class=\"form-control\" [(ngModel)]=\"selectedClass\">\n                    <option [value]=\"9\">9</option>\n                    <option [value]=\"10\">10</option>\n                    <option [value]=\"11\">11</option>\n                    <option [value]=\"12\">12</option>\n                </select>\n            </div>\n            \n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
 
 /***/ }),
 
@@ -1197,19 +1324,22 @@ var EditLessonComponent = (function () {
     EditLessonComponent.prototype.loadInitialValues = function () {
         var _this = this;
         this.lessonService.getLessonById(this.id).subscribe(function (data) {
+            // data = JSON.parse(data['body']);
+            console.log(data);
             _this.lessonTitle = data['title'];
             _this.lessonContent = data['content'];
         });
     };
     EditLessonComponent.prototype.onSubmit = function () {
-        console.log(this.lessonTitle);
-        console.log(this.lessonContent);
+        // console.log(this.lessonTitle);
+        // console.log(this.lessonContent);
+        console.log(this.selectedClass);
         if (this.id == 0) {
-            this.lessonService.postLesson(this.lessonTitle, this.lessonContent);
+            this.lessonService.postLesson(this.lessonTitle, this.lessonContent, this.selectedClass);
             this.router.navigateByUrl('/teacher-dashboard');
         }
         else {
-            this.lessonService.putLesson(this.lessonTitle, this.lessonContent, this.id);
+            this.lessonService.putLesson(this.lessonTitle, this.lessonContent, this.selectedClass, this.id);
             this.router.navigateByUrl('/teacher-dashboard');
         }
     };
@@ -1250,7 +1380,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/teacher-dashboard/edit-news/edit-news.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"row\">\n    <div class=\"col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n        <div class=\"jumbotron\" id=\"jumbotron-lectie\">\n            <h1>{{pageTitle}}</h1>\n\n            <div class=\"form-group\">\n                <p>Title </p>\n                <input [(ngModel)]=\"newsTitle\" name=\"edit-lesson-title\" class=\"form-control\" type=\"text\">\n            </div>\n            <!-- <app-wysiwyg-editor></app-wysiwyg-editor> -->\n            <!-- <div class=\"form-group\">\n                    <p>Content </p>\n                    <textarea [(ngModel)]=\"newsContent\" class=\"form-control\" name=\"edit-lesson-content\" rows=\"20\" id=\"edit-lesson-content\"></textarea>\n                </div> -->\n            <quill-editor class=\"my-quill-editor\" [(ngModel)]=\"newsContent\"></quill-editor>\n            <button class=\"btn btn-success\" (click)=\"onSubmit()\">Salveaza</button>\n\n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
+module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"row\">\n    <div class=\"col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n        <div class=\"jumbotron\" id=\"jumbotron-lectie\">\n            <h1>{{pageTitle}}</h1>\n\n            <div class=\"form-group\">\n                <p>Title </p>\n                <input [(ngModel)]=\"newsTitle\" name=\"edit-news-title\" class=\"form-control\" type=\"text\">\n            </div>\n            <!-- <app-wysiwyg-editor></app-wysiwyg-editor> -->\n            <!-- <div class=\"form-group\">\n                    <p>Content </p>\n                    <textarea [(ngModel)]=\"newsContent\" class=\"form-control\" name=\"edit-lesson-content\" rows=\"20\" id=\"edit-lesson-content\"></textarea>\n                </div> -->\n            <quill-editor class=\"my-quill-editor\" [(ngModel)]=\"newsContent\"></quill-editor>\n            <button class=\"btn btn-success\" (click)=\"onSubmit()\">Salveaza</button>\n\n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
 
 /***/ }),
 
@@ -1309,6 +1439,13 @@ var EditNewsComponent = (function () {
         //   this.lessonService.putLesson(this.lessonTitle, this.lessonContent, this.id);
         //   this.router.navigateByUrl('/teacher-dashboard'); 
         // }
+        if (this.id == 0) {
+            this.newsService.addNews(this.newsContent, this.newsTitle);
+        }
+        else {
+            this.newsService.modifyNews(this.id, this.newsContent, this.newsTitle);
+        }
+        this.router.navigateByUrl('/teacher-dashboard');
     };
     return EditNewsComponent;
 }());
@@ -1603,9 +1740,6 @@ var LoginComponent = (function () {
                     _this.wrongCredentials = false;
                 }, 5000);
             }
-            else if (data == true) {
-                _this.router.navigateByUrl('/dashboard');
-            }
         });
     };
     LoginComponent.prototype.logIn = function () {
@@ -1739,6 +1873,7 @@ var NewsComponent = (function () {
     NewsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.news.getNews().subscribe(function (data) {
+            data = JSON.parse(data['_body']);
             _this.contentNews = data;
         });
     };
@@ -1764,9 +1899,10 @@ var _a;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewsService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1777,14 +1913,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+// import { HttpClient } from '@angular/common/http';
 
 
 
 var NewsService = (function () {
-    function NewsService(http) {
+    function NewsService(http, authService) {
         this.http = http;
-        this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
-        this.newsData = [];
+        this.authService = authService;
     }
     NewsService.prototype.ngOnInit = function () {
     };
@@ -1794,14 +1930,37 @@ var NewsService = (function () {
     NewsService.prototype.getNewsById = function (id) {
         return this.http.get('https://cercinfo.herokuapp.com/api/news/' + id);
     };
+    NewsService.prototype.addNews = function (content, title) {
+        // let body = {
+        //   user_id: this.authService.getUserId(),
+        //   title: title,w
+        //   content: content
+        // }
+        // let headers = new Headers();
+        // headers.append('Content-Type', 'application/json');
+        // headers.append('Authorization', 'Bearer ' + this.authService.getToken());
+        // this.http.post('https://cercinfo.herokuapp.com/api/news', body, {headers: headers});
+    };
+    NewsService.prototype.modifyNews = function (id, content, title) {
+        // let body = {
+        //   id: id,
+        //   user_id: this.authService.getUserId(),
+        //   title: title,
+        //   content: contentwwwww
+        // }
+        // let headers = new Headers();
+        // headers.append('Content-Type', 'application/json');
+        // headers.append('Authorization', 'Bearer ' + this.authService.getToken());
+        // this.http.put('https://cercinfo.herokuapp.com/api/news', body, {headers: headers});
+    };
     return NewsService;
 }());
 NewsService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__auth_service__["a" /* AuthService */]) === "function" && _b || Object])
 ], NewsService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=news.service.js.map
 
 /***/ }),
@@ -1827,7 +1986,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/welcome/welcome-screen/welcome-screen.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n\n<div class=\"jumbotron hero\" id=\"main-jumbotron\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-lg-offset-4 col-md-9 col-md-offset-4 col-md-pull-3 get-it\" id=\"main-info\">\n                <h1>Cerc informatica eMAG</h1>\n                \n                <a class=\"btn btn-primary btn-lg\" role=\"button\" routerLink=\"/login\">CONECTARE </a>\n                <a class=\"btn btn-success btn-lg\" role=\"button\"  routerLink=\"/register\">INREGISTRARE</a>\n                <a class=\"btn btn-success btn-lg\" role=\"button\"  routerLink=\"/dashboard\">Dashboard - only for testing</a>\n                <a class=\"btn btn-success btn-lg\" role=\"button\"  routerLink=\"/teacher-dashboard\">Teacher Dashboard - only for testing</a>\n                \n                <!-- <p id=\"description-text\">Acest site este dedicat pregatirii elevilor din cadrul cercului de informatica organizat de emag. Reprezinta\n                    un sistem centralizat pentru elevi si profesori. Faciliteaza comunicarea, si se asigura ca toti utilizatorii\n                    ajung la informatiile necesare.\n                </p> -->\n                <br>\n                <p id=\"description-text\"><span class=\"important-text\">crezi ca poti reusi</span>, iar de restul ne ocupam noi.\n                </p>\n                <p id=\"description-text\">Acest site este dedicat pregatirii elevilor din cadrul cercului de informatica organizat de emag. Reprezinta\n                        un sistem centralizat pentru elevi si profesori. Faciliteaza comunicarea, si se asigura ca toti utilizatorii\n                        ajung la informatiile necesare.\n                    </p>\n            </div>\n        </div>\n    </div>\n</div>\n<app-news></app-news>\n<app-default-footer></app-default-footer>"
+module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n\n<div class=\"jumbotron hero\" id=\"main-jumbotron\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-lg-offset-4 col-md-9 col-md-offset-4 col-md-pull-3 get-it\" id=\"main-info\">\n                <h1>Cerc informatica eMAG</h1>\n\n\n                <!-- <a class=\"btn btn-success btn-lg\" role=\"button\"  routerLink=\"/dashboard\">Dashboard - only for testing</a>\n                <a class=\"btn btn-success btn-lg\" role=\"button\"  routerLink=\"/teacher-dashboard\">Teacher Dashboard - only for testing</a> -->\n\n                <!-- <p id=\"description-text\">Acest site este dedicat pregatirii elevilor din cadrul cercului de informatica organizat de emag. Reprezinta\n                    un sistem centralizat pentru elevi si profesori. Faciliteaza comunicarea, si se asigura ca toti utilizatorii\n                    ajung la informatiile necesare.\n                </p> -->\n                <br>\n                <p id=\"description-text\"><span class=\"important-text\">crezi ca poti reusi</span>, iar de restul ne ocupam noi.\n                </p>\n                <p id=\"description-text\">Acest site este dedicat pregatirii elevilor din cadrul cercului de informatica organizat de emag. Reprezinta\n                    un sistem centralizat pentru elevi si profesori. Faciliteaza comunicarea, si se asigura ca toti utilizatorii\n                    ajung la informatiile necesare.\n                </p>\n                <a class=\"btn btn-primary btn-lg\" role=\"button\" routerLink=\"/login\">CONECTARE </a>\n                <a class=\"btn btn-success btn-lg\" role=\"button\"  routerLink=\"/register\">INREGISTRARE</a>\n            </div>\n        </div>\n    </div>\n</div>\n<app-news></app-news>\n<app-default-footer></app-default-footer>"
 
 /***/ }),
 
@@ -1837,6 +1996,7 @@ module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WelcomeScreenComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1847,10 +2007,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var WelcomeScreenComponent = (function () {
-    function WelcomeScreenComponent() {
+    function WelcomeScreenComponent(authService) {
+        this.authService = authService;
     }
     WelcomeScreenComponent.prototype.ngOnInit = function () {
+        // this.authService.loadInitialValues();
     };
     return WelcomeScreenComponent;
 }());
@@ -1860,9 +2023,10 @@ WelcomeScreenComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/welcome/welcome-screen/welcome-screen.component.html"),
         styles: [__webpack_require__("../../../../../src/app/welcome/welcome-screen/welcome-screen.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__auth_service__["a" /* AuthService */]) === "function" && _a || Object])
 ], WelcomeScreenComponent);
 
+var _a;
 //# sourceMappingURL=welcome-screen.component.js.map
 
 /***/ }),
@@ -1923,8 +2087,7 @@ WelcomeModule = __decorate([
             ]),
             __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__["a" /* SharedModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_4__welcome_screen_welcome_screen_component__["a" /* WelcomeScreenComponent */], __WEBPACK_IMPORTED_MODULE_6__login_login_component__["a" /* LoginComponent */], __WEBPACK_IMPORTED_MODULE_7__register_register_component__["a" /* RegisterComponent */], __WEBPACK_IMPORTED_MODULE_8__welcome_screen_news_news_component__["a" /* NewsComponent */]],
-        providers: []
+        declarations: [__WEBPACK_IMPORTED_MODULE_4__welcome_screen_welcome_screen_component__["a" /* WelcomeScreenComponent */], __WEBPACK_IMPORTED_MODULE_6__login_login_component__["a" /* LoginComponent */], __WEBPACK_IMPORTED_MODULE_7__register_register_component__["a" /* RegisterComponent */], __WEBPACK_IMPORTED_MODULE_8__welcome_screen_news_news_component__["a" /* NewsComponent */]]
     })
 ], WelcomeModule);
 
