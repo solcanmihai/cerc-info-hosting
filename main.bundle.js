@@ -103,12 +103,14 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__student_dashboard_homework_service__ = __webpack_require__("../../../../../src/app/student-dashboard/homework.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__teacher_auth_guard__ = __webpack_require__("../../../../../src/app/teacher-auth.guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__user_service__ = __webpack_require__("../../../../../src/app/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -149,6 +151,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_6__student_dashboard_lessons_service__["a" /* LessonsService */],
             __WEBPACK_IMPORTED_MODULE_8__welcome_welcome_screen_news_news_service__["a" /* NewsService */],
             __WEBPACK_IMPORTED_MODULE_12__student_dashboard_homework_service__["a" /* HomeworkService */],
+            __WEBPACK_IMPORTED_MODULE_15__user_service__["a" /* UserService */],
             // Http,
             __WEBPACK_IMPORTED_MODULE_11__auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_9__auth_guard__["a" /* AuthGuard */],
@@ -411,7 +414,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shared/not-logged-in-navigation/not-logged-in-navigation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n      <div class=\"navbar-header\">\n          <a class=\"navbar-brand navbar-link\" [routerLink]=\"welcomeRoutinLink\" style=\"color:rgb(200,200,200);\">Cerc informatica eMAG</a>\n          <button class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navcol-1\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"navcol-1\">\n          <ul *ngIf=\"!loggedIn\" class=\"nav navbar-nav navbar-right\">\n              <li class=\"active\" role=\"presentation\"><a routerLink=\"/login\" id=\"login-button\" style=\"color:rgb(200,200,200);\">Log in</a></li>\n              <li role=\"presentation\"><a routerLink=\"/register\" style=\"color:rgb(200,200,200);\">Sign up</a></li>\n          </ul>\n          <ul *ngIf=\"loggedIn\" class=\"nav navbar-nav navbar-right\">\n            <li class=\"active\" role=\"presentation\"><a (click)=\"logout()\" id=\"login-button\" style=\"color:rgb(200,200,200);\">Logout</a></li>\n        </ul>\n      </div>\n  </div>\n</nav>"
+module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n      <div class=\"navbar-header\">\n          <a class=\"navbar-brand navbar-link\" [routerLink]=\"welcomeRoutinLink\" style=\"color:rgb(200,200,200);\">Cerc informatica eMAG</a>\n          <button class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navcol-1\"><span class=\"sr-only\">Toggle navigation</span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span><span class=\"icon-bar\"></span></button>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"navcol-1\">\n          <ul *ngIf=\"!loggedIn\" class=\"nav navbar-nav navbar-right\">\n              <li class=\"active\" role=\"presentation\"><a routerLink=\"/login\" id=\"login-button\" style=\"color:rgb(200,200,200);\">Log in</a></li>\n              <li role=\"presentation\"><a routerLink=\"/register\" style=\"color:rgb(200,200,200);\">Sign up</a></li>\n          </ul>\n          <ul *ngIf=\"loggedIn\" class=\"nav navbar-nav navbar-right\">\n            <li class=\"active\" role=\"presentation\"><a (click)=\"logout()\" id=\"login-button\" style=\"color:rgb(200,200,200);\" [routerLink]=\"'/'\" >Logout</a></li>\n        </ul>\n      </div>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -668,7 +671,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/student-dashboard/lesson/lesson.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"row\">\n    <div class=\"col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n        <div class=\"jumbotron\" id=\"jumbotron-lectie\">\n            <h1>{{lessonData?.title}} </h1>\n            <!-- <h4 class=\"text-center\">-{{lessonData?.user.first_name}} {{lessonData?.user.last_name}}-</h4> -->\n            <p [innerHtml]=\"lessonData?.content\">\n                <!-- {{lessonData?.content}} -->\n                <!-- <div ></div> -->\n            </p>\n        </div>\n        <div class=\"panel panel-default\" id=\"comments\">\n            <div class=\"panel-heading\">\n                <h3 class=\"panel-title\">Comments </h3>\n            </div>\n            <div class=\"panel-body\">\n                <ul class=\"list-group\">\n                    <li *ngFor=\"let question of questionsData; let i = index\" class=\"list-group-item comment\">\n                        <div class=\"panel panel-default\">\n                            <div class=\"panel-heading\">\n                                <div class=\"container-fluid\">\n                                    <div class=\"row\">\n                                        <div class=\"col-lg-6 col-md-12\">\n                                            <h3 class=\"text-left panel-title\">{{question['user_id']}}</h3>\n                                        </div>\n                                        <div class=\"col-lg-6 col-md-12\">\n                                            <h3 class=\"text-right panel-title\">!!!Date has to be added in the backend!!!</h3>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"panel-body\">\n                                <span>{{question['content']}}</span>\n                                <hr>\n                                <hr>\n                                <div *ngFor=\"let answer of answersData[question['id']]\" class=\"panel panel-default\">\n                                    <div class=\"panel-heading\">\n                                        <div class=\"container-fluid\">\n                                            <div class=\"row\">\n                                                <div class=\"col-lg-6 col-md-12\">\n                                                    <h3 class=\"text-left panel-title\">{{answer['user_id']}}</h3>\n                                                </div>\n                                                <div class=\"col-lg-6 col-md-12\">\n                                                    <h3 class=\"text-right panel-title\">!!!Date has to be added in the backend!!!</h3>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"panel-body\"><span>{{answer['content']}} </span></div>\n                                </div>\n                                <h4>Reply to question</h4>\n                                <div class=\"container-fluid\">\n                                    <div class=\"row\">\n                                        <div class=\"col-md-12\" id=\"comment-input-parent\">\n                                            <textarea rows=\"3\" id=\"comment-input\" class=\"form-control\" [(ngModel)]=\"newAnswersContent[i]\"></textarea>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"col-md-12\">\n                                            <button class=\"btn btn-primary\" id=\"submit-comment-button\" (click)=\"addNewAnswer(i)\">Add answer</button>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </li>\n                </ul>\n                <h3>Add a comment</h3>\n                <div class=\"container-fluid\">\n                    <div class=\"row\">\n                        <div class=\"col-md-12\" id=\"comment-input-parent\">\n                            <textarea rows=\"5\" id=\"comment-input\" class=\"form-control\" [(ngModel)]=\"newCommentContent\"></textarea>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <button class=\"btn btn-primary\" id=\"submit-comment-button\" (click)=\"addNewComment()\">Add comment</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
+module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"row\">\n    <div class=\"col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n        <!-- <div class=\"jumbotron\" id=\"jumbotron-lectie\"> -->\n            <!-- <h1>{{lessonData?.title}} </h1> -->\n            <!-- <h4 class=\"text-center\">-{{lessonData?.user.first_name}} {{lessonData?.user.last_name}}-</h4> -->\n            <!-- <p [innerHtml]=\"lessonData?.content\"> -->\n                <!-- {{lessonData?.content}} -->\n                <!-- <div ></div> -->\n            <!-- </p> -->\n        <!-- </div> -->\n        <!-- <embed src=\"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\" width=\"100%\" height=\"90vh\"/> -->\n        <!-- <iframe src=\"http://docs.google.com/gview?url=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf\" style=\"width:600px; height:500px;\" frameborder=\"0\"></iframe> -->\n        \n        <!-- <pdf-viewer [src]=\"pdfSrc\" \n        [render-text]=\"true\"\n        style=\"display: block;\"\n></pdf-viewer> -->\n\n        <div class=\"panel panel-default\" id=\"comments\">\n            <div class=\"panel-heading\">\n                <h3 class=\"panel-title\">Comments </h3>\n            </div>\n            <div class=\"panel-body\">\n                <ul class=\"list-group\">\n                    <li *ngFor=\"let question of questionsData; let i = index\" class=\"list-group-item comment\">\n                        <div class=\"panel panel-default\">\n                            <div class=\"panel-heading\">\n                                <div class=\"container-fluid\">\n                                    <div class=\"row\">\n                                        <div class=\"col-lg-6 col-md-12\">\n                                            <h3 class=\"text-left panel-title\">{{getUserName(question['user_id'])}}</h3>\n                                        </div>\n                                        <div class=\"col-lg-6 col-md-12\">\n                                            <h3 class=\"text-right panel-title\">!!!Date has to be added in the backend!!!</h3>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"panel-body\">\n                                <span>{{question['content']}}</span>\n                                <hr>\n                                <hr>\n                                <div *ngFor=\"let answer of answersData[question['id']]\" class=\"panel panel-default\">\n                                    <div class=\"panel-heading\">\n                                        <div class=\"container-fluid\">\n                                            <div class=\"row\">\n                                                <div class=\"col-lg-6 col-md-12\">\n                                                    <h3 class=\"text-left panel-title\">{{getUserName(answer['user_id'])}}</h3>\n                                                </div>\n                                                <div class=\"col-lg-6 col-md-12\">\n                                                    <h3 class=\"text-right panel-title\">!!!Date has to be added in the backend!!!</h3>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"panel-body\"><span>{{answer['content']}} </span></div>\n                                </div>\n                                <h4>Reply to question</h4>\n                                <div class=\"container-fluid\">\n                                    <div class=\"row\">\n                                        <div class=\"col-md-12\" id=\"comment-input-parent\">\n                                            <textarea rows=\"3\" id=\"comment-input\" class=\"form-control\" [(ngModel)]=\"newAnswersContent[i]\"></textarea>\n                                        </div>\n                                    </div>\n                                    <div class=\"row\">\n                                        <div class=\"col-md-12\">\n                                            <button class=\"btn btn-primary\" id=\"submit-comment-button\" (click)=\"addNewAnswer(i)\">Add answer</button>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </li>\n                </ul>\n                <h3>Add a comment</h3>\n                <div class=\"container-fluid\">\n                    <div class=\"row\">\n                        <div class=\"col-md-12\" id=\"comment-input-parent\">\n                            <textarea rows=\"5\" id=\"comment-input\" class=\"form-control\" [(ngModel)]=\"newCommentContent\"></textarea>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <button class=\"btn btn-primary\" id=\"submit-comment-button\" (click)=\"addNewComment()\">Add comment</button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
 
 /***/ }),
 
@@ -681,6 +684,7 @@ module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lessons_service__ = __webpack_require__("../../../../../src/app/student-dashboard/lessons.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__questions_service__ = __webpack_require__("../../../../../src/app/student-dashboard/lesson/questions.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_service__ = __webpack_require__("../../../../../src/app/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -694,11 +698,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var LessonComponent = (function () {
-    function LessonComponent(route, lessonsService, questionsService) {
+    function LessonComponent(route, lessonsService, questionsService, userService) {
         this.route = route;
         this.lessonsService = lessonsService;
         this.questionsService = questionsService;
+        this.userService = userService;
         this.questionsData = [];
         this.answersData = [];
         this.newCommentContent = '';
@@ -752,6 +758,13 @@ var LessonComponent = (function () {
         this.questionsService.addQuestion(this.newCommentContent, this.id);
         this.newCommentContent = '';
     };
+    LessonComponent.prototype.getUserName = function (x) {
+        // this.userService.getUserById(x).subscribe(data => {
+        //   console.log(data);
+        //   return data;
+        // });
+        return 'user - still dont have enough privileges to get username by id';
+    };
     return LessonComponent;
 }());
 LessonComponent = __decorate([
@@ -760,10 +773,10 @@ LessonComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/student-dashboard/lesson/lesson.component.html"),
         styles: [__webpack_require__("../../../../../src/app/student-dashboard/lesson/lesson.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__lessons_service__["a" /* LessonsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__lessons_service__["a" /* LessonsService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__questions_service__["a" /* QuestionsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__questions_service__["a" /* QuestionsService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__lessons_service__["a" /* LessonsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__lessons_service__["a" /* LessonsService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__questions_service__["a" /* QuestionsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__questions_service__["a" /* QuestionsService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__user_service__["a" /* UserService */]) === "function" && _d || Object])
 ], LessonComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=lesson.component.js.map
 
 /***/ }),
@@ -1076,6 +1089,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+// import { PdfViewerComponent } from 'ng2-pdf-viewer';
 var StudentDashboardModule = (function () {
     function StudentDashboardModule() {
     }
@@ -1089,6 +1103,7 @@ StudentDashboardModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__["a" /* SharedModule */],
             __WEBPACK_IMPORTED_MODULE_10_ngx_quill_editor__["a" /* QuillEditorModule */],
             __WEBPACK_IMPORTED_MODULE_9__angular_forms__["a" /* FormsModule */],
+            // PdfViewerComponent,
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot([
                 {
@@ -1380,7 +1395,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/teacher-dashboard/edit-news/edit-news.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"row\">\n    <div class=\"col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n        <div class=\"jumbotron\" id=\"jumbotron-lectie\">\n            <h1>{{pageTitle}}</h1>\n\n            <div class=\"form-group\">\n                <p>Title </p>\n                <input [(ngModel)]=\"newsTitle\" name=\"edit-news-title\" class=\"form-control\" type=\"text\">\n            </div>\n            <!-- <app-wysiwyg-editor></app-wysiwyg-editor> -->\n            <!-- <div class=\"form-group\">\n                    <p>Content </p>\n                    <textarea [(ngModel)]=\"newsContent\" class=\"form-control\" name=\"edit-lesson-content\" rows=\"20\" id=\"edit-lesson-content\"></textarea>\n                </div> -->\n            <quill-editor class=\"my-quill-editor\" [(ngModel)]=\"newsContent\"></quill-editor>\n            <button class=\"btn btn-success\" (click)=\"onSubmit()\">Salveaza</button>\n\n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
+module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"row\">\n    <div class=\"col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n        <div class=\"jumbotron\" id=\"jumbotron-lectie\">\n            <h1>{{pageTitle}}</h1>\n\n            <div class=\"form-group\">\n                <p>Title </p>\n                <input [(ngModel)]=\"newsTitle\" name=\"edit-news-title\" class=\"form-control\" type=\"text\">\n            </div>\n            <!-- <app-wysiwyg-editor></app-wysiwyg-editor> -->\n            <!-- <div class=\"form-group\">\n                    <p>Content </p>\n                    <textarea [(ngModel)]=\"newsContent\" class=\"form-control\" name=\"edit-lesson-content\" rows=\"20\" id=\"edit-lesson-content\"></textarea>\n                </div> -->\n            <quill-editor class=\"my-quill-editor\" [(ngModel)]=\"newsContent\"></quill-editor>\n            <button class=\"btn btn-success\" (click)=\"onSubmit()\">Salveaza</button>\n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
 
 /***/ }),
 
@@ -1426,19 +1441,12 @@ var EditNewsComponent = (function () {
     EditNewsComponent.prototype.loadInitialValues = function () {
         var _this = this;
         this.newsService.getNewsById(this.id).subscribe(function (data) {
+            data = JSON.parse(data['_body']);
             _this.newsTitle = data['title'];
             _this.newsContent = data['content'];
         });
     };
     EditNewsComponent.prototype.onSubmit = function () {
-        // if(this.id == 0){
-        //   this.newsService.postNews(this.lessonTitle, this.lessonContent);
-        //   this.router.navigateByUrl('/teacher-dashboard'); 
-        // }
-        // else{
-        //   this.lessonService.putLesson(this.lessonTitle, this.lessonContent, this.id);
-        //   this.router.navigateByUrl('/teacher-dashboard'); 
-        // }
         if (this.id == 0) {
             this.newsService.addNews(this.newsContent, this.newsTitle);
         }
@@ -1460,6 +1468,77 @@ EditNewsComponent = __decorate([
 
 var _a, _b, _c;
 //# sourceMappingURL=edit-news.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/teacher-dashboard/prezenta/prezenta.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/teacher-dashboard/prezenta/prezenta.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"jumbotron\">\n  <div class=\"row\">\n    <h1>Prezenta - data</h1>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-8 col-md-offset-2\">\n      <hr>\n      <ul class=\"list-group\" *ngFor=\"let elev of elevi; let i=index\">\n        <li class=\"list-group-item\" [class.list-group-item-success]=\"prezent[i]\" [class.list-group-item-danger]=\"!prezent[i]\" (click)=\"togglePrezent(i)\">\n          <span>{{elev}} </span>\n        </li>\n      </ul>\n\n      <button class=\"btn btn-success\">SALVEAZA</button>\n    </div>\n  </div>\n</div>\n<app-default-footer></app-default-footer>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/teacher-dashboard/prezenta/prezenta.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrezentaComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PrezentaComponent = (function () {
+    function PrezentaComponent() {
+        this.elevi = ['mihai', 'andrei', 'solcan'];
+        this.prezent = [];
+    }
+    PrezentaComponent.prototype.ngOnInit = function () {
+        var i = 0;
+        for (var _i = 0, _a = this.elevi; _i < _a.length; _i++) {
+            var elev = _a[_i];
+            this.prezent[i] = false;
+        }
+    };
+    PrezentaComponent.prototype.togglePrezent = function (x) {
+        this.prezent[x] = !this.prezent[x];
+    };
+    return PrezentaComponent;
+}());
+PrezentaComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-prezenta',
+        template: __webpack_require__("../../../../../src/app/teacher-dashboard/prezenta/prezenta.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/teacher-dashboard/prezenta/prezenta.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], PrezentaComponent);
+
+//# sourceMappingURL=prezenta.component.js.map
 
 /***/ }),
 
@@ -1515,12 +1594,14 @@ TeacherDashboardForRoutingComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ngx_quill_editor__ = __webpack_require__("../../../../ngx-quill-editor/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__teacher_dashboard_for_routing_component__ = __webpack_require__("../../../../../src/app/teacher-dashboard/teacher-dashboard-for-routing.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__teacher_auth_guard__ = __webpack_require__("../../../../../src/app/teacher-auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__prezenta_prezenta_component__ = __webpack_require__("../../../../../src/app/teacher-dashboard/prezenta/prezenta.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1561,12 +1642,16 @@ TeacherDashboardModule = __decorate([
                         {
                             path: 'edit-news/:id',
                             component: __WEBPACK_IMPORTED_MODULE_7__edit_news_edit_news_component__["a" /* EditNewsComponent */]
+                        },
+                        {
+                            path: 'prezenta/:id',
+                            component: __WEBPACK_IMPORTED_MODULE_11__prezenta_prezenta_component__["a" /* PrezentaComponent */]
                         }
                     ]
                 }
             ])
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_2__teacher_dashboard_teacher_dashboard_component__["a" /* TeacherDashboardComponent */], __WEBPACK_IMPORTED_MODULE_5__edit_lesson_edit_lesson_component__["a" /* EditLessonComponent */], __WEBPACK_IMPORTED_MODULE_7__edit_news_edit_news_component__["a" /* EditNewsComponent */], __WEBPACK_IMPORTED_MODULE_9__teacher_dashboard_for_routing_component__["a" /* TeacherDashboardForRoutingComponent */]]
+        declarations: [__WEBPACK_IMPORTED_MODULE_2__teacher_dashboard_teacher_dashboard_component__["a" /* TeacherDashboardComponent */], __WEBPACK_IMPORTED_MODULE_5__edit_lesson_edit_lesson_component__["a" /* EditLessonComponent */], __WEBPACK_IMPORTED_MODULE_7__edit_news_edit_news_component__["a" /* EditNewsComponent */], __WEBPACK_IMPORTED_MODULE_9__teacher_dashboard_for_routing_component__["a" /* TeacherDashboardForRoutingComponent */], __WEBPACK_IMPORTED_MODULE_11__prezenta_prezenta_component__["a" /* PrezentaComponent */]]
     })
 ], TeacherDashboardModule);
 
@@ -1595,7 +1680,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/teacher-dashboard/teacher-dashboard/teacher-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"jumbotron\">\n    <h1 class=\"page-title\">Dashboard </h1>\n    <hr>\n    <div class=\"row\">\n        <div class=\"col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 content-group\">\n            <div class=\"inner pannel-dashboard\">\n                <h2 class=\"text-center\">News</h2>\n                <ul class=\"list-group pannel-list\">\n                    <li *ngFor=\"let news of newsObjects\" class=\"list-group-item\">\n                        <!-- <span>\n                            {{news['title']}}\n                        </span>    \n                        <span class=\"fa fa-pencil fa-lg edit\">Edit</span> -->\n                        <span [routerLink]=\"'/edit-news/'+news['id']\">\n                            {{news['title']}}\n                        </span>    \n                        <span [routerLink]=\"'/edit-news/'+news['id']\" class=\"edit\">\n                            <span class=\"fa fa-pencil fa-lg\"> </span>\n                            <span> Edit</span>\n                        </span>\n                        <span (click)=\"deleteNews(news)\" class=\"delete\">\n                            <span class=\"fa fa-pencil fa-lg\"> </span>\n                            <span> Delete</span>\n                        </span>\n                    </li>\n                </ul>\n                <a class=\"btn btn-primary\">\n                    ADAUGA NOUTATE\n                  </a>\n            </div>\n        </div>\n        <div class=\"col-lg-5 col-lg-offset-0 col-md-5 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 content-group\">\n            <div class=\"inner pannel-dashboard\">\n                <h2 class=\"text-center\">Lectii </h2>\n                <ul class=\"list-group pannel-list\">\n                    <li *ngFor=\"let lesson of lessonsObjects\" class=\"list-group-item\">\n                        <span [routerLink]=\"'/lectie/'+lesson['id']\">\n                            {{lesson['title']}}\n                        </span>    \n                        <span [routerLink]=\"'/edit-lesson/'+lesson['id']\" class=\"edit\">\n                            <span class=\"fa fa-pencil fa-lg\"> </span>\n                            <span> Edit</span>\n                        </span>\n                        <span (click)=\"deleteItem(lesson)\" class=\"delete\">\n                            <span class=\"fa fa-pencil fa-lg\"> </span>\n                            <span> Delete</span>\n                        </span>\n                    </li>\n                </ul>\n                <a class=\"btn btn-primary\" routerLink=\"/edit-lesson/0\">\n                    ADAUGA LECTIE\n                  </a>\n            </div>\n        </div>\n    </div>\n</div>\n<app-default-footer></app-default-footer>"
+module.exports = "<app-not-logged-in-navigation></app-not-logged-in-navigation>\n<div class=\"jumbotron\">\n    <h1 class=\"page-title\">Dashboard </h1>\n    <hr>\n    <div class=\"row\">\n        <div class=\"col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 content-group\">\n            <div class=\"inner pannel-dashboard\">\n                <h2 class=\"text-center\">News</h2>\n                <ul class=\"list-group pannel-list\">\n                    <li *ngFor=\"let news of newsObjects\" class=\"list-group-item\">\n                        <!-- <span>\n                            {{news['title']}}\n                        </span>    \n                        <span class=\"fa fa-pencil fa-lg edit\">Edit</span> -->\n                        <span [routerLink]=\"'/edit-news/'+news['id']\">\n                            {{news['title']}}\n                        </span>    \n                        <span [routerLink]=\"'/edit-news/'+news['id']\" class=\"edit\">\n                            <span class=\"fa fa-pencil fa-lg\"> </span>\n                            <span> Edit</span>\n                        </span>\n                        <span (click)=\"deleteNews(news)\" class=\"delete\">\n                            <span class=\"fa fa-pencil fa-lg\"> </span>\n                            <span> Delete</span>\n                        </span>\n                    </li>\n                </ul>\n                <a class=\"btn btn-primary\" [routerLink]=\"'/edit-news/0'\" >\n                    ADAUGA NOUTATE\n                  </a>\n            </div>\n        </div>\n        <div class=\"col-lg-5 col-lg-offset-0 col-md-5 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 content-group\">\n            <div class=\"inner pannel-dashboard\">\n                <h2 class=\"text-center\">Lectii </h2>\n                <ul class=\"list-group pannel-list\">\n                    <li *ngFor=\"let lesson of lessonsObjects\" class=\"list-group-item\">\n                        <span [routerLink]=\"'/lectie/'+lesson['id']\">\n                            {{lesson['title']}}\n                        </span>    \n                        <span [routerLink]=\"'/edit-lesson/'+lesson['id']\" class=\"edit\">\n                            <span class=\"fa fa-pencil fa-lg\"> </span>\n                            <span> Edit</span>\n                        </span>\n                        <span (click)=\"deleteItem(lesson)\" class=\"delete\">\n                            <span class=\"fa fa-pencil fa-lg\"> </span>\n                            <span> Delete</span>\n                        </span>\n                    </li>\n                </ul>\n                <a class=\"btn btn-primary\" routerLink=\"/edit-lesson/0\">\n                    ADAUGA LECTIE\n                  </a>\n            </div>\n        </div>\n    </div>\n    \n    <div class=\"row\">\n        <div class=\"col-sm-10 col-xs-offset-1 content-group\">\n            <div class=\"inner pannel-dashboard\">\n                <h2 class=\"text-center\">Prezenta</h2>\n                <ul class=\"list-group pannel-list\">\n                    <li class=\"list-group-item\">\n                        <span>data prezentei</span>\n                    </li>\n                    <li class=\"list-group-item\">\n                        <span>data prezentei</span>\n                    </li>\n                    <li class=\"list-group-item\">\n                        <span>data prezentei</span>\n                    </li>\n                    <li class=\"list-group-item\">\n                        <span>data prezentei</span>\n                    </li>\n                </ul>\n                <a class=\"btn btn-primary\" [routerLink]=\"'/prezenta/0'\">\n                    PREZENTA NOUA\n                </a>\n            </div>\n        </div>\n    </div>\n\n</div>\n<app-default-footer></app-default-footer>"
 
 /***/ }),
 
@@ -1633,6 +1718,7 @@ var TeacherDashboardComponent = (function () {
         var _this = this;
         this.newsService.getNews().subscribe(function (data) {
             _this.newsObjects = [];
+            data = JSON.parse(data['_body']);
             for (var newsx in data) {
                 _this.newsObjects.push(data[newsx]);
             }
@@ -1655,6 +1741,9 @@ var TeacherDashboardComponent = (function () {
         this.lessonsService.contentChanged.subscribe(function (data) {
             _this.getLessons();
         });
+        this.newsService.modifiedContent.subscribe(function (data) {
+            _this.getNews();
+        });
     };
     return TeacherDashboardComponent;
 }());
@@ -1669,6 +1758,48 @@ TeacherDashboardComponent = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=teacher-dashboard.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/user.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var UserService = (function () {
+    function UserService(http, authService) {
+        this.http = http;
+        this.authService = authService;
+    }
+    UserService.prototype.getUserById = function (x) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Authorization', 'Bearer ' + this.authService.getToken());
+        return this.http.get('https://cercinfo.herokuapp.com/api/user/' + x, { headers: headers });
+    };
+    return UserService;
+}());
+UserService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */]) === "function" && _b || Object])
+], UserService);
+
+var _a, _b;
+//# sourceMappingURL=user.service.js.map
 
 /***/ }),
 
@@ -1843,7 +1974,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/welcome/welcome-screen/news/news.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\n  <div class=\"row\" id=\"latest-news\">\n      <div class=\"col-lg-6 col-lg-offset-3 col-md-9 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n          <div>\n              <h1 id=\"news-heading\">Latest news</h1>\n              <div *ngFor=\"let news of contentNews\">\n                <hr>\n                <h1>{{news.title}} </h1>\n                <p>{{news.content}}</p>\n              </div>\n          </div>\n      </div>\n  </div>\n</section>"
+module.exports = "<section>\n  <div class=\"row\" id=\"latest-news\">\n      <div class=\"col-lg-6 col-lg-offset-3 col-md-9 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1\">\n          <div>\n              <h1 id=\"news-heading\">Latest news</h1>\n              <div *ngFor=\"let news of contentNews\">\n                <hr>\n                <h1>{{news.title}} </h1>\n                <p [innerHtml]=\"news.content\" ></p>\n              </div>\n          </div>\n      </div>\n  </div>\n</section>"
 
 /***/ }),
 
@@ -1921,6 +2052,7 @@ var NewsService = (function () {
     function NewsService(http, authService) {
         this.http = http;
         this.authService = authService;
+        this.modifiedContent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
     }
     NewsService.prototype.ngOnInit = function () {
     };
@@ -1931,36 +2063,46 @@ var NewsService = (function () {
         return this.http.get('https://cercinfo.herokuapp.com/api/news/' + id);
     };
     NewsService.prototype.addNews = function (content, title) {
-        // let body = {
-        //   user_id: this.authService.getUserId(),
-        //   title: title,w
-        //   content: content
-        // }
-        // let headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // headers.append('Authorization', 'Bearer ' + this.authService.getToken());
-        // this.http.post('https://cercinfo.herokuapp.com/api/news', body, {headers: headers});
+        var _this = this;
+        var body = {
+            user_id: this.authService.getUserId(),
+            title: title,
+            content: content
+        };
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'Bearer ' + this.authService.getToken());
+        this.http.post('https://cercinfo.herokuapp.com/api/news', body, { headers: headers }).subscribe(function (data) {
+            _this.modifiedContent.emit();
+        });
     };
     NewsService.prototype.modifyNews = function (id, content, title) {
-        // let body = {
-        //   id: id,
-        //   user_id: this.authService.getUserId(),
-        //   title: title,
-        //   content: contentwwwww
-        // }
-        // let headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // headers.append('Authorization', 'Bearer ' + this.authService.getToken());
-        // this.http.put('https://cercinfo.herokuapp.com/api/news', body, {headers: headers});
+        var _this = this;
+        var body = {
+            id: id,
+            user_id: this.authService.getUserId(),
+            title: title,
+            content: content
+        };
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'Bearer ' + this.authService.getToken());
+        this.http.put('https://cercinfo.herokuapp.com/api/news', body, { headers: headers }).subscribe(function (data) {
+            _this.modifiedContent.emit();
+        });
     };
     return NewsService;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]) === "function" && _a || Object)
+], NewsService.prototype, "modifiedContent", void 0);
 NewsService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__auth_service__["a" /* AuthService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__auth_service__["a" /* AuthService */]) === "function" && _c || Object])
 ], NewsService);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=news.service.js.map
 
 /***/ }),
